@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SPACEBALLS</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity   ="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
+    </script>
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
+
+</head>
+
+<body>
+    <div id='wrap'>
+        <header>
+            <div class="container-fluid">
+                <div class="row">
+                    <div>
+                        <h1> May the Shwartz be with you</h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+    <div class="container-fluid gameplaySection">
+            <h4> Choose your Character</h4>
+            <div class=>
+                <div id="characterList">
+
+                </div>
+            </div>
+
+            <h4> Enemies To Attack</h4>
+
+            <div id="enemyList">
+
+                <p> Enemy list</p>
+            </div>
+
+            <div class="row">
+
+                <h2> Arena </h2>
+
+            </div>
+
+            <h2> Your Character</h2>
+
+            <div id="yourCharacter">
+
+
+            </div>
+
+            <button class="waves-effect waves-light btn-danger btn-lg attackBtn text-center" id="attackBtn"> Attack </button>
+
+            <h2> Defender</h2>
+
+            <div id="yourEnemy">
+            </div>
+
+            <div id="attackText"> </div>
+
+            <br>
+            <div id="gameOver">
+
+            </div>
+
+
+
+        </div>
+
+        <div id="push"> </div>
+    </div>
+    <div id="footer">
+    </div>
+    <script type="text/template" id="characterTmpl">
+        <div class="characterContainer characterClick <%= background %>" data-character-index="<%= index %>">
+            <p>
+                <%=c haracter.name %>
+            </p>
+            <img src="<%= character.visual %>">
+            <p>HP:
+                <%=c haracter.healthPoints %>
+            </p>
+        </div>
+    </script>
+    <script type="text/template" id="attackTmpl">
+        <div class="attackText">
+            You attacked
+            <%=g ameObj.currentEnemy ? gameObj.currentEnemy.name : gameObj.lastOpponent.name %> for
+                <%=g ameObj.yourCurrentAttackPower %> damange!
+                    <br>
+                    <% if (gameObj.currentEnemy) { %>
+                        <%=g ameObj.currentEnemy.name %> counter attacked for
+                            <%=g ameObj.currentEnemy.counterAttackPower %>.
+                                <% } %>
+        </div>
+    </script>
+    <script type="text/template" id="winTmpl">
+        <div class="attackText">
+            You OWNED
+            <%=l astOpponent.name %>
+                <br> CHOOSE A NEW TARGET
+
+        </div>
+    </script>
+    <script type="text/template" id="lossTmpl">
+        <div class="attackText">
+            <%=g ameObj.currentEnemy.name %> OWNED YOU SON
+        </div>
+    </script>
+    <script type="text/template" id="jediTmpl">
+        <div class="attackText">
+            YOU GOT GUD
+
+        </div>
+    </script>
+
+</body>
+
+</html>
